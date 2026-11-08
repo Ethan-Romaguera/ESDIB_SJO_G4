@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#2446EB">
+
+    <title>RONA · Lo esencial nos une</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+    <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+    <div class="app-shell">
+        <header class="topbar">
+            <a class="brand" href="#inicio" aria-label="RONA, inicio">
+                <img src="assets/rona.svg" alt="RONA">
+            </a>
+        </header>
+
+        <main id="contenido" tabindex="-1"></main>
+
+        <nav class="dock" aria-label="Navegación principal">
+            <a href="#inicio" data-nav="inicio" aria-label="Inicio">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m3 10 9-8 9 8v11h-6v-7H9v7H3Z"/>
+                </svg>
+                <span class="sr-only">Inicio</span>
+            </a>
+
+            <a href="#logros" data-nav="logros" aria-label="Logros">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m12 2 3 6.4 7 .9-5.1 5 1.3 7L12 18l-6.2 3.3 1.3-7L2 9.3l7-.9Z"/>
+                </svg>
+                <span class="sr-only">Logros</span>
+            </a>
+
+            <a href="#donar" class="donate-link" data-nav="donar" aria-label="Donar">
+                <span class="plus">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M12 4v16M4 12h16"/>
+                    </svg>
+                </span>
+                <span class="sr-only">Donar</span>
+            </a>
+
+            <a href="#mapa" data-nav="mapa" aria-label="Mapa">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="m2 5 6-3 8 3 6-3v17l-6 3-8-3-6 3ZM8 2v17M16 5v17"/>
+                </svg>
+                <span class="sr-only">Mapa</span>
+            </a>
+
+            <a href="#perfil" data-nav="perfil" aria-label="Perfil">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <circle cx="12" cy="7" r="4"/>
+                    <path d="M4 22v-3a8 8 0 0 1 16 0v3Z"/>
+                </svg>
+                <span class="sr-only">Perfil</span>
+            </a>
+        </nav>
+    </div>
+
+    <div class="toast" role="status" aria-live="polite"></div>
+
+    <dialog id="info-dialog">
+        <button class="close-dialog" aria-label="Cerrar">×</button>
+        <div id="dialog-content"></div>
+    </dialog>
+
+    <noscript>Activa JavaScript para navegar por este prototipo.</noscript>
+
+    <template id="page-inicio">
+        <h1>Pequeños gestos.</h1>
+
+        <div id="carousel-slide" aria-live="polite">
+            <article class="hero">
+                <p class="kicker">Una necesidad. Una acción.</p>
+
+                <h2>Lo esencial<br>nos une.</h2>
+
+                <p>Alimentos, higiene y cuidado. Tu próxima aportación empieza cerca.</p>
+
+                <div class="hero-art" aria-hidden="true">
+                    <svg viewBox="0 0 100 90">
+                        <path d="m9 30 15-20h52l15 20" fill="none" stroke="#FFCD45" stroke-width="2"/>
+                        <rect x="9" y="30" width="82" height="50" rx="7" fill="#FFCD45"/>
+                    </svg>
+                </div>
+
+                <a class="button" href="#donar">Encuentra qué donar →</a>
+            </article>
+        </div>
+
+        <div class="carousel-controls" aria-label="Noticias destacadas">
+            <button class="dot" data-slide="0" aria-label="Noticia 1 de 3" aria-pressed="true"></button>
+            <button class="dot" data-slide="1" aria-label="Noticia 2 de 3" aria-pressed="false"></button>
+            <button class="dot" data-slide="2" aria-label="Noticia 3 de 3" aria-pressed="false"></button>
+        </div>
+
+        <section class="section">
+            <div class="section-heading">
+                <h2>Hace falta hoy</h2>
+                <a href="#donar">Ver todo ↗</a>
+            </div>
+
+            <article class="card">
+                <small>PUNTO RONA · CENTRO · 1,2 KM</small>
+
+                <h3 style="margin-top:9px">Leche UHT</h3>
+                <p style="margin-bottom:0">Se necesitan 40 L</p>
+
+                <div
+                    class="progress"
+                    role="progressbar"
+                    aria-label="Objetivo de campaña recibido"
+                    aria-valuenow="60"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                >
+                    <span style="width:60%"></span>
+                </div>
+
+                <a class="button block" href="#campana/leche">Ver campaña →</a>
+            </article>
+        </section>
+
+        <section class="section">
+            <h2>Así llega vuestra ayuda</h2>
+
+            <article class="card update">
+                <span class="mark">✓</span>
+                <p class="kicker">Actualización de ejemplo</p>
+
+                <h3>Una entrega. Un paso más.</h3>
+                <p>El punto Centro ha confirmado la recepción de productos de la campaña.</p>
+
+                <button class="button secondary" data-info="impacto">
+                    Ver cómo lo contamos →
+                </button>
+            </article>
+        </section>
+
+        <section class="section">
+            <div class="section-heading">
+                <h2>Un barrio que se mueve</h2>
+                <a href="#comunidad">Participa ↗</a>
+            </div>
+
+            <article class="card">
+                <span class="tag">Reto colectivo</span>
+                <h3>70 de 100 kits de higiene</h3>
+
+                <div class="progress">
+                    <span style="width:70%"></span>
+                </div>
+
+                <p>Cada kit completo acerca el objetivo.</p>
+
+                <a class="button block yellow" href="#comunidad">
+                    Ver qué falta →
+                </a>
+            </article>
+        </section>
+
+        <section class="section">
+            <h2>Detrás de cada gesto</h2>
+
+            <div class="about-links">
+                <button data-info="historia">Nuestra historia ↗</button>
+                <button data-info="equipo">Quiénes somos ↗</button>
+                <button data-info="como">Cómo donar ↗</button>
+                <button data-route="donar">Colabora ahora ↗</button>
+                <button data-route="comunidad">Voluntariado ↗</button>
+            </div>
+        </section>
+
+        <p class="demo">
+            Prototipo académico · entidades, distancias y cantidades de ejemplo.
+            Sin donaciones reales.
+        </p>
+    </template>
+
+    <template id="page-logros">
+        <h1>Cada gesto deja huella.</h1>
+
+        <article class="card update">
+            <h2>{{receivedSummary}}</h2>
+            <p>Contador local de demostración.</p>
+        </article>
+
+        <div class="badges">
+            <article class="card badge {{firstBadgeClass}}">
+                <span class="medal">
+                    <svg viewBox="0 0 32 32" aria-hidden="true">
+                        <path d="m9 3 7 10 7-10M6 3h8l7 10M26 3h-8L11 13"/>
+                        <circle cx="16" cy="21" r="8"/>
+                        <path d="m16 16 1.5 3 3.5.5-2.5 2.4.6 3.5-3.1-1.6-3.1 1.6.6-3.5-2.5-2.4 3.5-.5Z"/>
+                    </svg>
+                </span>
+
+                <h3>Primer paso</h3>
+                <p>{{firstBadgeDescription}}</p>
+            </article>
+
+            <article class="card badge locked">
+                <span class="medal">
+                    <svg viewBox="0 0 32 32" aria-hidden="true">
+                        <path d="m9 3 7 10 7-10M6 3h8l7 10M26 3h-8L11 13"/>
+                        <circle cx="16" cy="21" r="8"/>
+                        <path d="m16 16 1.5 3 3.5.5-2.5 2.4.6 3.5-3.1-1.6-3.1 1.6.6-3.5-2.5-2.4 3.5-.5Z"/>
+                    </svg>
+                </span>
+
+                <h3>Siempre sumas</h3>
+                <p>Participa en 3 meses distintos</p>
+            </article>
+
+            <article class="card badge locked">
+                <span class="medal">
+                    <svg viewBox="0 0 32 32" aria-hidden="true">
+                        <path d="m9 3 7 10 7-10M6 3h8l7 10M26 3h-8L11 13"/>
+                        <circle cx="16" cy="21" r="8"/>
+                        <path d="m16 16 1.5 3 3.5.5-2.5 2.4.6 3.5-3.1-1.6-3.1 1.6.6-3.5-2.5-2.4 3.5-.5Z"/>
+                    </svg>
+                </span>
+
+                <h3>Manos a la obra</h3>
+                <p>Completa un turno de voluntariado</p>
+            </article>
+
+            <article class="card badge locked">
+                <span class="medal">
+                    <svg viewBox="0 0 32 32" aria-hidden="true">
+                        <path d="m9 3 7 10 7-10M6 3h8l7 10M26 3h-8L11 13"/>
+                        <circle cx="16" cy="21" r="8"/>
+                        <path d="m16 16 1.5 3 3.5.5-2.5 2.4.6 3.5-3.1-1.6-3.1 1.6.6-3.5-2.5-2.4 3.5-.5Z"/>
+                    </svg>
+                </span>
+
+                <h3>En equipo</h3>
+                <p>Completa un reto colectivo</p>
+            </article>
+        </div>
+
+        <a class="button block rewards-link" href="#recompensas">
+            Ver recompensas →
+        </a>
+
+        <p class="reward-note">Premios sujetos a disponibilidad.</p>
+
+        <p class="demo">
+            Prototipo académico · entidades, distancias y cantidades de ejemplo.
+            Sin donaciones reales.
+        </p>
+    </template>
+
+    <template id="page-donar">
+        <h1>¿Qué puedes compartir?</h1>
+
+        <div class="chips" aria-label="Filtrar donaciones">
+            <button class="chip" data-filter="Todo" aria-pressed="true">
+                Todo
+            </button>
+
+            <button class="chip" data-filter="Alimentos" aria-pressed="false">
+                Alimentos
+            </button>
+
+            <button class="chip" data-filter="Higiene" aria-pressed="false">
+                Higiene
+            </button>
+        </div>
+
+        <div id="product-list">
+            <article class="card" data-category="Alimentos">
+                <div class="product-top">
+                    <span class="product-icon">
+                        <svg viewBox="0 0 36 44" aria-hidden="true">
+                            <path d="M10 3h16v6l5 8v24H5V17l5-8ZM10 9h16M5 17h26M12 23h12v12H12Z"/>
+                        </svg>
+                    </span>
+
+                    <div>
+                        <h3>Leche UHT</h3>
+                        <small>40 L pendientes</small>
+                    </div>
+                </div>
+
+                <div
+                    class="progress"
+                    role="progressbar"
+                    aria-label="Objetivo de campaña recibido"
+                    aria-valuenow="60"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                >
+                    <span style="width:60%"></span>
+                </div>
+
+                <p class="meta">Recepciones confirmadas por la entidad</p>
+
+                <a class="button block" href="#campana/leche">
+                    Ver campaña →
+                </a>
+            </article>
+
+            <article class="card" data-category="Higiene">
+                <div class="product-top">
+                    <span class="product-icon">
+                        <svg viewBox="0 0 36 44" aria-hidden="true">
+                            <path d="M10 3h16v6l5 8v24H5V17l5-8ZM10 9h16M5 17h26M12 23h12v12H12Z"/>
+                        </svg>
+                    </span>
+
+                    <div>
+                        <h3>Jabón y gel</h3>
+                        <small>25 unidades pendientes</small>
+                    </div>
+                </div>
+
+                <div
+                    class="progress"
+                    role="progressbar"
+                    aria-label="Objetivo de campaña recibido"
+                    aria-valuenow="35"
+                    aria-valuemin="0"
+                    aria-valuemax="100"
+                >
+                    <span style="width:35%"></span>
+                </div>
+
+                <p class="meta">Recepciones confirmadas por la entidad</p>
+
+                <a class="button block" href="#campana/higiene">
+                    Ver campaña →
+                </a>
+            </article>
+        </div>
+
+        <p class="demo">
+            Prototipo académico · entidades, distancias y cantidades de ejemplo.
+            Sin donaciones reales.
+        </p>
+    </template>
+
+    <template id="page-mapa">
+        <h1>Cerca de ti. Más fácil.</h1>
+
+        <label class="sr-only" for="point-search">
+            Buscar punto o producto
+        </label>
+
+        <input
+            id="point-search"
+            type="search"
+            placeholder="Buscar punto o producto…"
+        >
+
+        <div class="map" aria-label="Esquema de tres puntos ficticios">
+            <svg viewBox="0 0 400 260" aria-hidden="true">
+                <path d="M-20 40 420 200M-20 180 420 50M100-20 260 280M300-20 90 280" fill="none" stroke="white" stroke-width="24"/>
+                <path d="M0 240Q200 140 400 240V280H0" fill="#c4d4fa"/>
+            </svg>
+
+            <button class="pin" data-point="leche" aria-label="Ver Punto RONA · Centro" aria-pressed="true">
+                1
+            </button>
+
+            <button class="pin" data-point="higiene" aria-label="Ver Punto RONA · Norte" aria-pressed="false">
+                2
+            </button>
+
+            <button class="pin" data-point="panales" aria-label="Ver Punto RONA · Este" aria-pressed="false">
+                3
+            </button>
+        </div>
+
+        <p class="map-caption">Mapa esquemático · puntos ficticios</p>
+
+        <div id="point-list" aria-live="polite">
+            <article class="card" id="point-leche">
+                <small>Alimentos · 1,2 km ilustrativos</small>
+                <h3>Punto RONA · Centro</h3>
+                <p>Necesita: Leche UHT</p>
+
+                <a class="button secondary block" href="#campana/leche">
+                    Consultar campaña →
+                </a>
+            </article>
+        </div>
+
+        <p class="demo">
+            Prototipo académico · entidades, distancias y cantidades de ejemplo.
+            Sin donaciones reales.
+        </p>
+    </template>
+
+    <template id="page-perfil">
+        <h1>Tu pequeño gran recorrido.</h1>
+
+        <section class="profile-header">
+            <h2>Hola, Jaime.</h2>
+            <p class="subtitle">Perfil de demostración</p>
+
+            <div class="stats">
+                <div>
+                    <b>{{intentions}}</b>
+                    <span>Intenciones</span>
+                </div>
+
+                <div>
+                    <b>{{received}}</b>
+                    <span>Recepciones demo</span>
+                </div>
+
+                <div>
+                    <b>{{medals}}</b>
+                    <span>Medallas</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="about-links">
+                <button data-route="seguimiento">
+                    Seguir mi última donación ↗
+                </button>
+
+                <button data-route="logros">
+                    Medallas y recompensas ↗
+                </button>
+
+                <button data-route="comunidad">
+                    Retos y voluntariado ↗
+                </button>
+            </div>
+        </section>
+
+        <article class="card section">
+            <h3>A tu ritmo</h3>
+
+            <label class="check-label">
+                <input type="checkbox" id="reminder">
+                Guardar preferencia de recordatorio mensual
+            </label>
+
+            <small>
+                Solo guarda tu preferencia. Esta demo no envía notificaciones.
+            </small>
+        </article>
+
+        <button id="reset-demo" class="button outline block">
+            Borrar mis datos de demostración
+        </button>
+
+        <p class="demo">
+            Prototipo académico · entidades, distancias y cantidades de ejemplo.
+            Sin donaciones reales.
+        </p>
+    </template>
+
+    <template id="page-seguimiento">
+        <h1>La ayuda está en marcha.</h1>
+
+        <article class="card">
+            <h3>{{quantityLabel}}</h3>
+            <p>{{productName}}</p>
+            <small>Referencia {{reference}}</small>
+        </article>
+
+        <ol class="timeline">
+            <li class="done">
+                <strong>Preparada</strong>
+                <small>Intención guardada en este navegador.</small>
+            </li>
+
+            <li class="{{receivedClass}}">
+                <strong>{{receivedState}}</strong>
+                <small>Una entidad confirmaría la cantidad aceptada.</small>
+            </li>
+
+            <li>
+                <strong>Clasificación</strong>
+                <small>Pendiente de actualización de la entidad.</small>
+            </li>
+
+            <li>
+                <strong>Resultado de la campaña</strong>
+                <small>Información por lote, cuando esté disponible.</small>
+            </li>
+        </ol>
+
+        {{trackingAction}}
+
+        <p class="demo">
+            Prototipo académico · entidades, distancias y cantidades de ejemplo.
+            Sin donaciones reales.
+        </p>
+    </template>
+
+    <template id="page-comunidad">
+        <p class="kicker">Comunidad</p>
+
+        <h1>Juntos llega<br>más lejos.</h1>
+
+        <article class="hero">
+            <p class="kicker">Objetivo de ejemplo</p>
+
+            <h2>100 kits.<br>Un mismo barrio.</h2>
+
+            <div class="hero-art" aria-hidden="true">
+                <svg viewBox="0 0 300 90">
+                    <path d="M75 35h140l-12 50H88Z" fill="#FFCD45"/>
+                    <path d="m75 35 25-25h100l15 25M145 36v48" fill="none" stroke="#18254C" stroke-width="3"/>
+                    <rect x="108" y="0" width="24" height="45" rx="5" fill="white" transform="rotate(-12 120 20)"/>
+                    <path d="M170 5h21v41h-34V21Z" fill="#E8E9FF"/>
+                    <path d="m30 28 9 8 17-20M246 30l8-12 9 12 14 3-12 9 1 14-12-7-13 7 2-14-11-9Z" fill="none" stroke="white" stroke-width="3"/>
+                </svg>
+            </div>
+
+            <p>
+                70 kits completos. Cada kit incluye productos de higiene solicitados por la entidad.
+            </p>
+
+            <a class="button" href="#campana/higiene">Ver qué falta →</a>
+        </article>
+
+        <section class="section">
+            <h2>Tu tiempo también cuenta</h2>
+
+            <article class="card">
+                <span class="tag">Actividad ilustrativa</span>
+                <h3>Clasificación de productos</h3>
+                <p>Turno de 2 horas · Punto Centro.</p>
+
+                <button class="button block" data-info="voluntariado">
+                    Cómo participar →
+                </button>
+            </article>
+        </section>
+
+        <section class="section">
+            <h2>Noticias de la comunidad</h2>
+
+            <article class="card update">
+                <h3>Un objetivo compartido</h3>
+
+                <p>
+                    Las entidades pueden publicar recepciones y avances para mostrar lo que está llegando.
+                </p>
+
+                <button class="button secondary" data-info="impacto">
+                    Entender el seguimiento →
+                </button>
+            </article>
+        </section>
+
+        <p class="demo">
+            Prototipo académico · entidades, distancias y cantidades de ejemplo.
+            Sin donaciones reales.
+        </p>
+    </template>
+
+    <template id="page-recompensas">
+        <a class="meta" href="#logros">← Volver a logros</a>
+
+        <h1 class="section">Pequeños gestos.<br>Un gracias especial.</h1>
+
+        <article class="card">
+            <span class="tag">Concepto · no disponible</span>
+            <h2>La bolsa de quienes suman</h2>
+
+            <p>
+                Bolsa reutilizable como reconocimiento a la participación.
+                El canje requiere acuerdos con colaboradores y existencias.
+            </p>
+
+            <button class="button block outline" disabled>
+                Canje no disponible
+            </button>
+        </article>
+
+        <p class="demo">
+            Prototipo académico · entidades, distancias y cantidades de ejemplo.
+            Sin donaciones reales.
+        </p>
+    </template>
+
+    <template id="page-campana">
+        <a class="meta" href="#donar">← Todas las necesidades</a>
+
+        <h1 class="section">{{productName}}</h1>
+        <p class="subtitle">{{entity}} · entidad de ejemplo</p>
+
+        <article class="card update">
+            <span class="product-icon">
+                <svg viewBox="0 0 36 44" aria-hidden="true">
+                    <path d="M10 3h16v6l5 8v24H5V17l5-8ZM10 9h16M5 17h26M12 23h12v12H12Z"/>
+                </svg>
+            </span>
+
+            <h2 class="section">Faltan {{missing}}</h2>
+
+            <div class="progress">
+                <span style="width:{{progress}}%"></span>
+            </div>
+
+            <p>{{progress}}% del objetivo recibido</p>
+
+            <small>
+                Las aportaciones comprometidas no se cuentan como recibidas.
+            </small>
+        </article>
+
+        <article class="card">
+            <h3>Antes de donar</h3>
+            <p>{{requirements}}</p>
+
+            <h3>Punto y horario</h3>
+
+            <p>
+                Entrega presencial · horario a elegir en el siguiente paso.
+                Ubicación ilustrativa.
+            </p>
+        </article>
+
+        <a class="button block" href="#preparar/{{productId}}">
+            Preparar mi aportación →
+        </a>
+
+        <p class="demo">
+            Prototipo académico · entidades, distancias y cantidades de ejemplo.
+            Sin donaciones reales.
+        </p>
+    </template>
+
+    <template id="page-preparar">
+        <a class="meta" href="#campana/{{productId}}">
+            ← Volver a campaña
+        </a>
+
+        <h1 class="section">Tu próxima<br>aportación.</h1>
+
+        <p class="subtitle">
+            1. Productos · 2. Entrega · 3. Confirmación
+        </p>
+
+        <form id="donation-form" data-product="{{productId}}">
+            <article class="card">
+                <h3>{{productName}}</h3>
+                <p>{{unit}}</p>
+
+                <label for="quantity">Cantidad</label>
+
+                <div class="quantity">
+                    <button type="button" data-qty="-1" aria-label="Reducir cantidad">
+                        −
+                    </button>
+
+                    <output id="quantity" aria-live="polite">1</output>
+
+                    <button type="button" data-qty="1" aria-label="Aumentar cantidad">
+                        +
+                    </button>
+                </div>
+            </article>
+
+            <article class="card">
+                <label for="delivery">Horario de entrega de ejemplo</label>
+
+                <select id="delivery" required>
+                    <option value="">Selecciona una franja</option>
+                    <option value="mañana">Mañana · 10:00–12:00</option>
+                    <option value="tarde">Tarde · 16:00–18:00</option>
+                </select>
+
+                <h3>{{entity}}</h3>
+                <p>{{requirements}}</p>
+            </article>
+
+            <label class="check-label">
+                <input type="checkbox" required>
+                He revisado los requisitos del producto y entiendo que es una simulación.
+            </label>
+
+            <button class="button block" type="submit">
+                Confirmar intención de donar →
+            </button>
+
+            <p class="demo">
+                Esta acción guarda un ejemplo en este navegador.
+                No se contacta con ninguna entidad ni se reserva una entrega.
+            </p>
+        </form>
+    </template>
+
+    <template id="slide-1">
+        <article class="hero">
+            <p class="kicker">RETO DE LA COMUNIDAD</p>
+
+            <h2>100 kits.<br>Un mismo barrio.</h2>
+
+            <a class="button" href="#comunidad">Ver el reto →</a>
+        </article>
+    </template>
+
+    <template id="slide-2">
+        <article class="hero">
+            <p class="kicker">TU TIEMPO TAMBIÉN AYUDA</p>
+
+            <h2>Dos horas<br>que suman.</h2>
+
+            <a class="button" href="#comunidad">Ver voluntariado →</a>
+        </article>
+    </template>
+</body>
+</html>
